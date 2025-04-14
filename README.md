@@ -1,4 +1,4 @@
-# Welcome to React Router!
+# React Router 7 + Supabase
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
