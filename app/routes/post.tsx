@@ -1,4 +1,4 @@
-import { Form, redirect, useFetcher } from "react-router";
+import { useFetcher, useNavigate } from "react-router";
 import type { Route } from "./+types/post";
 
 export async function clientLoader({ params }: Route.LoaderArgs) {
@@ -21,6 +21,8 @@ export async function clientAction({ params }: Route.ClientActionArgs) {
 
 export default function Post({ loaderData }: Route.ComponentProps) {
   const fetcher = useFetcher();
+  const navigate = useNavigate();
+
   const isDeleted = fetcher.data?.isDeleted;
 
   return (
@@ -31,6 +33,7 @@ export default function Post({ loaderData }: Route.ComponentProps) {
           <p>{loaderData.body}</p>
         </>
       )}
+      <button onClick={() => navigate("/")}>Redirect</button>
 
       <fetcher.Form method="delete">
         <button type="submit">Delete</button>
